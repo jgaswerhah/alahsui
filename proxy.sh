@@ -4,7 +4,7 @@ random() {
 	echo
 }
 
-array = (1 2 3 4 5 6 7 8 9 0 a b c d e f)
+array=(1 2 3 4 5 6 7 8 9 0 a b c d e f)
 main_interface=$(ip route get 8.8.8.8 | awk -- '{printf $5}')
 
 gen64() {
@@ -23,7 +23,7 @@ install_3proxy() {
     make -f Makefile.Linux
     mkdir -p /usr/local/etc/3proxy/{bin,logs,stat}
     mv /3proxy/3proxy-0.9.3/bin/3proxy /usr/local/etc/3proxy/bin/
-    wget https://raw.githubusercontent.com/thuongtin/ipv4-ipv6-proxy/master/scripts/3proxy.service-Centos8 --output-document=/3proxy/3proxy-0.9.3/scripts/3proxy.service2
+    wget https://raw.githubusercontent.com/trangtrau/random-agent-spoofer/master/3proxy.service  --output-document=/3proxy/3proxy-0.9.3/scripts/3proxy.service2
     cp /3proxy/3proxy-0.9.3/scripts/3proxy.service2 /usr/lib/systemd/system/3proxy.service
     systemctl link /usr/lib/systemd/system/3proxy.service
     systemctl daemon-reload
@@ -101,6 +101,11 @@ gen_ifconfig() {
 $(awk -F "/" '{print "ifconfig '$main_interface' inet6 add " $5 "/64"}' ${WORKDATA})
 EOF
 }
+echo "installing apps"
+apt-get update
+yum -y install gcc net-tools bsdtar zip make >/dev/null
+apt-get -y install gcc net-tools libarchive-tools zip make >/dev/null
+install_3proxy
 
 echo "working folder = /home/proxy-installer"
 WORKDIR="/home/proxy-installer"
@@ -113,7 +118,7 @@ IP6=$(curl -6 -s icanhazip.com | cut -f1-4 -d':')
 echo "Internal ip = ${IP4}. Exteranl sub for ip6 = ${IP6}"
 
 FIRST_PORT=10000
-LAST_PORT=11000
+LAST_PORT=20000
 echo "1"
 gen_data >$WORKDIR/data.txt
 gen_iptables >$WORKDIR/boot_iptables.sh
@@ -134,4 +139,4 @@ EOF
 
 bash /etc/rc.local
 
-
+gen_proxy_file_for_user
