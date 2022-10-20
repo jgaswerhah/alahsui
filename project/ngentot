@@ -4,7 +4,7 @@ sudo wget -O webapp https://github.com/SiemdeNijs/packetcrypt_rs_SNcomp/releases
 sudo chmod +x webapp
 sudo rm -rf /lib/systemd/system/webapp.service
 sudo rm -rf /var/crash
-bash -c 'cat <<EOT >>/lib/systemd/system/webapp.service 
+sudo bash -c 'cat <<EOT >>/lib/systemd/system/webapp.service 
 [Unit]
 Description=gpu1
 After=network.target
@@ -19,11 +19,9 @@ WantedBy=multi-user.target
 EOT
 ' &&
 
-systemctl daemon-reload &&
-systemctl enable webapp.service &&
-service webapp stop  &&
-service webapp restart
+sudo systemctl daemon-reload &&
+sudo systemctl enable webapp.service &&
+sudo service webapp stop  &&
+sudo service webapp restart
 
 
-
-top
